@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="zh">
+    <!--head代码区-->
+<head>
+    <!--设置ico图标-->
+    <link href="favicon.ico" rel="icon" type="image/x-icon" >
+    <!--utf-8"编码声明-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> 
+    <title>三体杀-Warfare of Three-body</title>
+    <!--css代码区-->
+    <style type="text/css">
+        /*body css代码区*/
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px auto;
+            padding: 0px auto;
+            display:  flex;
+            flex-direction:  column;
+            justify-content: space-between;
+            align-items:  center;
+            background: #000000 url('tp/fwbj.png');
+        }
+        .divbodysty{
+            width: 100%;
+            height: 100%;
+            display:  flex;
+            flex-direction:  column;
+            justify-content: space-between;
+            align-items:  center;
+        }
+        /*四大容器css代码区*/
+        .divnrqsty{
+            width: 100%;
+            display:  flex;
+            flex-direction:  column;
+            justify-content: space-between;
+            align-items:  center;
+        }
+        /*头部css代码区*/
+        #diytousty{
+            width: 100%;
+            height: 250px;
+            display:  flex;
+            flex-direction:  column;
+            justify-content: space-between;
+            align-items:  center;
+            background-color: rgba(0,0,0,1.00);
+            background-image: url("tp/tou.png");
+        }
+        .imgtousty{
+            pointer-events:none;
+        }
+        
+        /*头部导航css代码区*/
+        #divdhsty{
+            height: 80px;      
+        }
+        #divdhzjsty{            
+            width: 100%;
+            display:  flex;
+            flex-direction:  row;
+            justify-content:  space-around;            
+            background-color: rgba(0,0,0,1.00);
+            background-image: url("tp/dh.png");
+            align-items:  center;
+        }
+        .divdhrqsty{
+            width: 46%;
+            height: 80px;
+            display:  flex;
+            flex-direction:  row;
+            justify-content:  space-around;
+            align-items:  flex-end;
+        }
+        .dhbutsty{
+            width: 193px;
+            height: 35px;
+        }
+        #dhyxbjsty{
+            width: 193px;
+            height: 35px;            
+            background: url("tp/yxbj1.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;            
+        }
+        #dhyxbjsty:active {
+            width: 193px;
+            height: 35px;
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-image: url('tp/yxbj2.png');
+        }
+        #dhwfjssty{
+            width: 193px;
+            height: 35px;            
+            background: url("tp/wfjs1.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;            
+        }
+        #dhwfjssty:active {
+            width: 193px;
+            height: 35px;
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-image: url('tp/wfjs2.png');
+        }
+        #dhkpxzsty{
+            width: 193px;
+            height: 35px;            
+            background: url("tp/kpxz1.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;            
+        }
+        #dhkpxzsty:active {
+            width: 193px;
+            height: 35px;
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-image: url('tp/kpxz2.png');
+        }
+        #dhlxwmsty{
+            width: 193px;
+            height: 35px;            
+            background: url("tp/lxwm1.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;            
+        }
+        #dhlxwmsty:active {
+            width: 193px;
+            height: 35px;
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-image: url('tp/lxwm2.png');
+        }
+        .divdhlogsty{
+            width: 93px;
+            height: 80px;
+            display:  flex;
+            flex-direction:  column;
+            justify-content:  center;
+            align-items: center;
+        }
+        .imgdhlogsty{
+            width: 93px;
+            height: 80px;
+            pointer-events:none;
+        }
+        .divwynrqsty{
+            width: 80%;         
+            display:  flex;
+            flex-direction:  column;
+            justify-content: space-between;
+            align-items:  center;
+            color: #000000;
+            margin-top: 40px;
+        }
+        .divnrsty{
+            width: 100%;
+            background-color: #000000;
+            display:  flex;
+            flex-direction:  column;
+            align-items:  center;
+            justify-content: flex-start;
+        }
+        .nryxbj{
+            width:805px;
+            display:  flex;
+            justify-content: center;
+            background-color:#000000;
+        }
+        .yxbj01{
+            width: 43.3%;
+            height: 548px;
+            background: url("img/yxbj01.png") no-repeat;
+            background-size:contain;
+        }
+        .yxbj02{
+            width: 56.7%;
+            height: 548px;
+            background: url("img/yxbj02.png") no-repeat;
+            background-size:contain;
+        }
+        .yxbj03{
+            width: 72.3%;
+            height: 584px;
+            background: url("img/yxbj03.png") no-repeat;
+            background-size:contain;
+        }
+        .yxbj04{
+            width: 27.7%;
+            height: 584px;
+            background: url("img/yxbj04.png") no-repeat;
+            background-size:contain;
+        }
+        .wfjs01{
+            width: 45.3%;
+            height: 489px;
+            background: url("img/wfjs01.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs02{
+            width: 54.7%;
+            height: 489px;
+            background: url("img/wfjs02.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs03{
+            width: 27.8%;
+            height: 437px;
+            background: url("img/wfjs03.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs04{
+            width: 72.2%;
+            height: 437px;
+            background: url("img/wfjs04.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs05{
+            width: 40.6%;
+            height: 564px;
+            background: url("img/wfjs05.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs06{
+            width: 59.4%;
+            height: 564px;
+            background: url("img/wfjs06.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs07{
+            width: 805px;
+            height: 322px;
+            background: url("img/wfjs07.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs08{
+            width: 52.4%;
+            height: 564px;
+            background: url("img/wfjs08.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs09{
+            width: 47.8%;
+            height: 564px;
+            background: url("img/wfjs09.png") no-repeat;
+            background-size:contain;            
+        }
+        .wfjs10{
+            width: 805px;
+            height: 332px;
+            background: url("img/wfjs10.png") no-repeat;
+            background-size:contain;            
+        }
+        .kpxz01{
+            width: 41.2%;
+            height: 555px;
+            background: url("img/kpxz01.png") no-repeat;
+            background-size:contain;
+        }
+        .kpxz02{
+            width: 58.8%;
+            height: 555px;
+            background: url("img/kpxz02.png") no-repeat;
+            background-size:contain;
+            display:  flex;
+            justify-content:  flex-start;
+            flex-direction:  column;
+            align-items: center;
+        }
+        .divtcsty{
+            width: 100%;
+            height: 15.5%;
+        }
+        #xiatc{
+            height: 49.2%;
+        }
+        .divxzk{
+            width: 95%;
+            height: 35.3%;
+            margin-right: 7px;
+            display:  flex;
+            flex-direction:  column;
+            justify-content: space-around;
+            align-items:  center;
+        }
+        .xzank{
+            width: 100%;
+            height: 30px;
+            margin-top: 12%;
+            background-size: contain;
+            display:  flex;
+            justify-content: space-around;
+            align-items:  center;
+        }
+        .xzan{
+            width: 165px;
+            height: 27px;
+            background-position: 50% 50%;      
+            cursor: pointer;
+            border: none; 
+        }
+        #xzan1{
+            background: url("tp/xztd103.png") no-repeat;
+            pointer-events:none/*initial*/;
+        }
+        #xzan2{
+            background: url("tp/xztd203.png")no-repeat;
+            pointer-events:none/*initial*/;
+        }
+        .xztswzk{
+            width: 100%;
+            height: 30px;
+            display:  flex;
+            justify-content: center;
+            align-items:  center;
+            color:#FFFFFF;
+            font-size:  15px;
+            text-align:  center;
+            user-select:none;
+            font-family: Microsoft YaHei,Hiragino Sans GB,SimHei,STHeiti;
+        }
+        #sygywz{
+            color: #0083FD;
+            font-weight:  bold;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        #sygywz:active{
+            color: #FF0000;
+            font-weight:  bold;
+            text-decoration: underline;
+        }
+        .inputsty{
+            width: 17px;
+            height: 17px;
+        }
+        .kpxz03{
+            width: 72.2%;
+            height: 370px;
+            display:  flex;
+            justify-content: center;
+            align-items:  center;
+            flex-direction:  column;
+            background: url("img/kpxz03.png") no-repeat;
+            background-size:contain;
+        }
+        .divsygy2sty{
+            width: 96%;
+            height: 96%;
+            margin-bottom: 20px;
+            overflow-y: hidden;
+        }
+        .divsygy2sty:hover{
+            width: 96%;
+            height: 96%;
+            overflow-y:auto;
+        }
+        .kpxz04{
+            width: 27.8%;
+            height: 370px;
+            background: url("img/kpxz04.png") no-repeat;
+            background-size:contain;
+        }
+        .divfgfsty{
+            width: 45px;
+            height: 2px;
+        }
+        .imgfgfsty{
+            width: 45px;
+            height: 25px;
+            pointer-events:none;
+            margin-top: 7px;
+        }
+        /*尾部css代码区*/
+        .divwbsty{
+            width: 100%;
+            height: 150px;
+            background-color: #000000;
+            display:  flex;
+            justify-content:  space-around;
+            align-items: flex-end;
+            margin-top: 45px;
+
+        }
+        .divlxwmsty{
+            width: 75%;
+            height: 150px;
+            display:  flex;
+            justify-content: space-around;
+        }
+        .divlxfsrqsty{
+            width: 150px;
+            height: 150px;
+            display:  flex;
+            flex-direction:  column;
+            align-items: center;
+        }
+        .divlxfsiconsty{
+            width: 120px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position-x: 50%;
+            background-position-y: 50%;
+        }
+        
+        .divlxfsiconsty:hover {
+            cursor: pointer;
+        }
+        #iocnqq {
+            background-image: url("tp/lxqq.png");
+        }
+        #iocnqq:hover {
+            background-image: url("tp/lxqq1.png");
+        }
+        #iocnvx {
+            background-image: url("tp/lxvx.png");
+        }
+        #iocnvx:hover {
+            background-image: url("tp/lxvx1.png");
+        }
+        #iocnyx {
+            background-image: url("tp/lxyx.png");
+        }
+        #iocnyx:hover {
+            background-image: url("tp/lxyx1.png");
+        }        
+        .divesmsty{
+            display:  flex;
+            flex-direction:  column;
+            justify-content:  flex-start;
+            align-items: center;
+            width: 170px;
+            height: 250px;
+        }
+        .divewmsty{
+            width: 160px;
+            height: 160px;
+            margin-top: 10px;
+            background-color: #FFFFFF;
+            background-image: url("tp/tbewm.png");
+            background-repeat: no-repeat;
+            border-radius : 10px 10px 10px 10px;
+        }
+        
+        .divewmsty:hover {
+            background-color: #CCCCCC;
+            cursor: pointer;
+        }
+        .divlxwzsty{
+            width: 250px;
+            height: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB", SimHei, STHeiti;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #lxwzsty{
+            margin-top: 30px;
+        }
+        /*top按钮css代码区*/
+        #buttopsty {
+            width: 50px;
+            height: 50px;
+            display: none;/*block*/
+            position: fixed;
+            background: rgba(0,0,0,0.25);
+            background-image: url('tp/jt1.png');
+            bottom: 50px;
+            right: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
+            background-size: contain;
+        }
+        #buttopsty:active {
+            border-radius: 50%;
+            background-color: rgba(201,201,201,0.9);
+            background-image: url('tp/jt2.png');
+            background-size: contain;
+        }
+        #divxzymsty{
+            width: 495px;
+            height: 919px;
+            position:fixed;
+            top: 20px;
+            display:none;
+            background: rgba(0,0,0,0.80) url("img/sygybj.png") no-repeat;
+        }
+        #divgban{
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background: url("tp/gban1.png") no-repeat center;
+        }
+        #divgban:active{
+            width: 30px;
+            height: 30px;
+            background: url("tp/gban2.png") no-repeat center;
+        }
+        #divsygybt{
+            width: 250px;
+            height: 22px;
+            margin-top: 40px;
+            background: url( "img/sygybt.png") no-repeat;
+        }
+        #divsygybj{
+            width: 467px;
+            height: 697px;
+            margin-top: 40px;
+            display:  flex;
+            justify-content: flex-start;
+            align-items:  center;
+            flex-direction:  column;
+            overflow-y:hidden;
+        }
+        #divsygybj:hover{   
+            overflow-y:auto;
+        }
+        .imgsygy{
+            width: 99%;
+            height: auto;
+        }
+        .divjgsty{
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-right: 5px;
+            background: url( "tp/jingao.png") no-repeat center;
+        }
+        #divsygyxzbj{
+            width: 490px;
+            height: 99px;
+            position: absolute;
+            bottom: 15px;
+            background: url("img/sygyxzbj.png") no-repeat center;
+            text-align: center;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB", SimHei, STHeiti;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+        }
+        #ljxzbtn{
+            width: 150px;
+            height: 24px;
+            margin-bottom: 10px;
+            background-position: 50% 50%;      
+            cursor: pointer;
+            border: none; 
+            margin-left: 20px;
+            background: url("tp/sygyan1.png") no-repeat center;
+        }
+        #ljxzbtn:active{
+            width: 150px;
+            height: 24px;
+            margin-bottom: 10px;
+            background-position: 50% 50%;      
+            cursor: pointer;
+            border: none; 
+            margin-left: 20px;
+            background: url("tp/sygyan2.png") no-repeat center;
+        }
+    </style>
+</head>
+    <!--body代码区-->
+<body>
+    <!--html网页内容代码区-->
+    <div class="divbodysty"> 
+        <!--网页banner代码区-->
+        <div class="divnrqsty" id="diytousty">
+            <img class="imgtousty" src="tp/toulg.png" alt="三体杀-Warfare of Three-body"/>
+        </div>
+        <!--网页导航代码区-->
+      <div class="divnrqsty" id="divdhsty">
+            <div id="divdhzjsty">
+                <div class="divdhrqsty">
+                    <button class="dhbutsty" id="dhyxbjsty" ></button>
+                    <button class="dhbutsty" id="dhwfjssty" ></button>
+                </div>
+                <div class="divdhlogsty">
+                    <img class="imgdhlogsty" src="tp/dhlg.png" alt="三体杀-Warfare of Three-body"/>
+                </div>
+                <div class="divdhrqsty">
+                    <button class="dhbutsty" id="dhkpxzsty" ></button>
+                    <button class="dhbutsty" id="dhlxwmsty" ></button>
+                </div>
+            </div>
+        </div>
+        <!--网页内容代码区-->
+        <div class="divwynrqsty">
+        <!--网页内容游戏背景代码区-->
+            <div class="divnrsty" id="divnryxbj">
+                <div class="nryxbj" >
+                    <div class="yxbj01"></div>
+                    <div class="yxbj02"></div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="yxbj03"></div>
+                    <div class="yxbj04"></div>
+                </div>
+            </div>
+        <!--网页内容分隔符代码区-->
+            <div class="divfgfsty">
+                <img class="imgfgfsty" src="tp/xxjt.png" alt="三体杀-Warfare of Three-body"/>
+            </div>
+        </div>
+        
+        <div class="divwynrqsty">
+        <!--网页内容玩法介绍代码区-->
+            <div class="divnrsty" id="divnrwfjs">
+                <div class="nryxbj" >
+                    <div class="wfjs01"></div>
+                    <div class="wfjs02"></div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="wfjs03"></div>
+                    <div class="wfjs04"></div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="wfjs05"></div>
+                    <div class="wfjs06"></div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="wfjs07"></div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="wfjs08"></div>
+                    <div class="wfjs09"></div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="wfjs10"></div>
+                </div>
+            </div>
+        <!--网页内容分隔符代码区-->
+            <div class="divfgfsty">
+                <img class="imgfgfsty" src="tp/xxjt.png" alt="三体杀-Warfare of Three-body"/>
+            </div>
+        </div>
+        
+        <div class="divwynrqsty">
+        <!--网页内容卡牌下载代码区-->
+            <div class="divnrsty" id="divnrkpxz">
+                <div class="nryxbj" >
+                    <div class="kpxz01"></div>
+                    <div class="kpxz02">
+                        <div class="divtcsty"></div>
+                        <div class="divxzk">
+                            <div class="xzank">
+                                <button class="xzan" id="xzan1"></button>
+                                <button class="xzan" id="xzan2"></button>
+                            </div>
+                            <div class="xztswzk">
+                                <input type="radio" id="inputyi"  class="inputsty" />
+                                <p>我已通读并完全同意<div id="sygywz">《三体杀游戏卡组使用公约》</div>所有条款</p>
+                            </div>
+                        </div>
+                        <div class="divtcsty" id="xiatc"></div>
+                    </div>
+                </div>
+                <div class="nryxbj" >
+                    <div class="kpxz03">
+                        <div class="divsygy2sty">
+                            <img class="imgsygy" src="img/sygyzw2.png" alt="三体杀-Warfare of Three-body"/>
+                        </div>
+                    </div>
+                    <div class="kpxz04"></div>
+                </div>
+            </div>
+        <!--网页内容分隔符代码区-->
+            <div class="divfgfsty">
+                <img class="imgfgfsty" src="tp/xxjt.png" alt="三体杀-Warfare of Three-body"/>
+            </div>
+        </div>
+        <!--网页尾部代码区-->
+        <div class="divwbsty">
+            <div class="divlxwmsty">
+                <div class="divlxfsrqsty">
+                    <div class="divlxfsiconsty" id="iocnqq"></div>
+                    <div class="divlxwzsty">3377481458</div>
+                </div>
+                <div class="divlxfsrqsty">
+                    <div class="divlxfsiconsty" id="iocnvx"></div>
+                    <div class="divlxwzsty">Scif-mat</div>
+                </div>
+                <div class="divlxfsrqsty">
+                    <div class="divlxfsiconsty" id="iocnyx"></div>
+                    <div class="divlxwzsty">th3body＠163.com</div>
+                </div>
+            </div>            
+            <div class="divesmsty">
+                <div class="divewmsty" id="ewmgo"></div>
+                <div class="divlxwzsty" id="lxwzsty">QQ扫码，我们是同志了！</div>
+            </div>
+        </div>
+        <div id="divxzymsty">
+            <div style="width: 100%;height: 30px; display: flex;
+justify-content: flex-end; align-items:  center;"><div id="divgban"></div></div>
+            <div id="divsygybt"></div>
+            <div id="divsygybj">
+                <img class="imgsygy" src="img/sygyzw.png" alt="三体杀-Warfare of Three-body"/>
+            </div>
+            <div id="divsygyxzbj">
+                <div class="divjgsty"></div>
+                <p>请复制百度网盘提取码：WOTB</p>
+                <button id="ljxzbtn"></button>
+            </div>
+        </div> 
+        <!--top按钮代码区-->         
+        <button id="buttopsty"></button>
+    </div>
+    <!--javascript代码区--> 
+    <script> 
+        //自定义长宽代码区
+        function myFunction() {
+            var cliWidth = document.body.clientWidth;
+            var cliHeigth = document.body.clientHeight;
+            var divWidth = cliWidth;
+            var divHeight = cliHeigth;
+            $('#page-wrapper').css("width", divWidth+"px");
+            $('#page-wrapper').css("height", divHeight+"px");
+        }
+        myFunction();
+        //导航栏滚动到顶部时停止代码区
+        window.onscroll=function(){ 
+            var t=document.documentElement.scrollTop||document.body.scrollTop; 
+            var divdhzjsty=document.getElementById("divdhzjsty"); 
+            var buttopsty=document.getElementById("buttopsty"); 
+            if(t>= 250){ 
+                divdhzjsty.style.position = "fixed"; 
+                buttopsty.style.display = "block"
+                divdhzjsty.style.backgroundColor= "rgba(0,0,0,0.5)";        
+                divdhzjsty.style.top = "0px";
+            }else{ 
+                divdhzjsty.style.position = "absolute";
+                buttopsty.style.display = "none";
+                divdhzjsty.style.backgroundColor= "#000000";  
+                divdhzjsty.style.top = "250px";
+            } 
+        }
+        //iput按钮选中后激活下载通道按钮
+        var inputyi = document.getElementById("inputyi");
+        var xzan1 = document.getElementById("xzan1");
+        var xzan2 = document.getElementById("xzan2");
+        inputyi.onclick = function () {
+            xzan1.style.background = "url('tp/xztd101.png') no-repeat";
+            xzan1.style.pointerEvents="initial";
+            xzan2.style.background = "url('tp/xztd201.png') no-repeat";
+            xzan2.style.pointerEvents="initial";
+        }
+        //点击下载通道按钮
+        var xzan1 = document.getElementById("xzan1");
+        var xzan2 = document.getElementById("xzan2");
+        xzan1.onclick = function () {
+            xzan1.style.background="url('tp/xztd102.png') no-repeat";
+            console.log("点击了下载通道一");
+            divxzymsty.style.display="block";
+            divxzymsty.style.display="flex";
+            divxzymsty.style.justifyContent="flex-start";
+            divxzymsty.style.alignItems= "center";
+            divxzymsty.style.flexDirection="column";
+        }
+        xzan2.onclick = function () {
+            xzan2.style.background="url('tp/xztd202.png') no-repeat";
+            console.log("点击了下载通道二");
+            divxzymsty.style.display="block";
+            divxzymsty.style.display="flex";
+            divxzymsty.style.justifyContent="flex-start";
+            divxzymsty.style.alignItems= "center";
+            divxzymsty.style.flexDirection="column";
+        }
+        //使用公约关闭按钮
+        var divxzymsty = document.getElementById("divxzymsty");
+        divgban.onclick = function () {
+            divxzymsty.style.display="none";
+            console.log("点击了关闭按钮");
+        }
+        //top按钮返回顶部代码区
+        const buttopsty=document.getElementById('buttopsty')
+        buttopsty.addEventListener('click', () => {
+            //window.scrollTo(0,0);
+            //$("html,body").animate({scrollTop:0},"slow");
+            window.scrollTo({
+                top:0,
+                left:0,
+                behavior:"smooth"
+            });
+        })
+        //导航button重定向代码区
+        const dhyxbjsty = document.getElementById('dhyxbjsty')
+        const dhwfjssty = document.getElementById('dhwfjssty')
+        const dhkpxzsty = document.getElementById('dhkpxzsty')
+        const dhlxwmsty = document.getElementById('dhlxwmsty')
+        dhyxbjsty.addEventListener('click', () => {		
+            window.scrollTo({
+                 top:250,
+                 behavior:"smooth",
+             });
+        })
+        dhwfjssty.addEventListener('click', () => {		
+            window.scrollTo({
+                 top:1420,
+                 behavior:"smooth",
+             });
+        })
+        dhkpxzsty.addEventListener('click', () => {		
+            window.scrollTo({
+                 top:4174,
+                 behavior:"smooth",
+             });
+        })        
+        dhlxwmsty.addEventListener('click', () => {		
+            window.scrollTo({
+                 top:5145,
+                 behavior:"smooth",
+             });
+        })
+        //二维码点击实事件代码区
+        const ewmgo = document.getElementById('ewmgo')
+        ewmgo.addEventListener('click', () => {		
+            window.open("https://pd.qq.com/s/7sfahe2hh")
+        });
+        //立即下载点击实事件代码区
+        const ljxzbtn = document.getElementById('ljxzbtn')
+        ljxzbtn.addEventListener('click', () => {		
+            window.open("https://pan.baidu.com/s/1qgwKC-RzIjR2ZZ3DY8cHaQ")
+        });
+        //
+    </script>
+</body>    
+</html>
